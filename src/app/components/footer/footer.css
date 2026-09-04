@@ -1,0 +1,11 @@
+:host {
+	display: block;
+	position: relative;
+	z-index: 10;
+}
+
+@media (max-width: 767px) {
+	:host {
+		background: #f3f3f9;
+	}
+}
