@@ -53,6 +53,15 @@ import { CommonModule } from '@angular/common';
                     <p class="font-label-sm text-text-secondary mt-1">Compare prop firms and earn rewards.</p>
                   </div>
                 </a>
+                <a class="flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+                  <div class="bg-primary-container/10 p-2 rounded-md text-primary-container group-hover:bg-primary-container group-hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">monitoring</span>
+                  </div>
+                  <div>
+                    <h4 class="font-label-md text-text-primary">GEX</h4>
+                    <p class="font-label-sm text-text-secondary mt-1">Read gamma exposure and market pressure.</p>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
@@ -77,6 +86,7 @@ import { CommonModule } from '@angular/common';
           <a class="mobile-product-link" href="#products" (click)="closeMenu()"><span><strong>Log</strong><small>Trade journalling</small></span><span class="material-symbols-outlined text-[17px]">arrow_forward</span></a>
           <a class="mobile-product-link" href="#products" (click)="closeMenu()"><span><strong>Quant</strong><small>Indicators and strategies</small></span><span class="material-symbols-outlined text-[17px]">arrow_forward</span></a>
           <a class="mobile-product-link" href="#products" (click)="closeMenu()"><span><strong>Scout</strong><small>Prop firms and rewards</small></span><span class="material-symbols-outlined text-[17px]">arrow_forward</span></a>
+          <a class="mobile-product-link" href="#products" (click)="closeMenu()"><span><strong>GEX</strong><small>Gamma exposure and market pressure</small></span><span class="material-symbols-outlined text-[17px]">arrow_forward</span></a>
         </div>
         <a class="mobile-nav-link" href="#about" (click)="closeMenu()">Our approach <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
         <!-- <a class="mobile-nav-link" href="#" (click)="closeMenu()">Sign in <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
