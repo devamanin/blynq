@@ -9,10 +9,20 @@ import { Component } from '@angular/core';
       <div class="w-full flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div><p class="font-label-sm uppercase tracking-[0.2em] text-primary">The ecosystem</p><h2 class="mt-3 font-headline-lg text-headline-lg-mobile md:text-headline-lg text-text-primary">Tools that think ahead.</h2></div>
       </div>
-      <div class="mt-10 w-full grid gap-4 md:grid-cols-3">
-        <article class="product-card group bg-[#e9f0ff]"><div class="flex items-start justify-between"><div class="icon-tile bg-[#2e72ff] text-white"><span class="material-symbols-outlined">edit_note</span></div><span class="font-label-sm text-primary">01</span></div><div><h3 class="mt-12 font-headline-md text-headline-md text-text-primary">Log</h3><p class="mt-3 font-body-md text-text-secondary">Journal every trade automatically or by hand, capture your thinking, and learn from your decisions.</p><a href="#" class="mt-7 inline-flex items-center gap-2 font-label-md text-primary">Discover Log <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a></div></article>
-        <article class="product-card group bg-[#e5f9f3]"><div class="flex items-start justify-between"><div class="icon-tile bg-[#00a99a] text-white"><span class="material-symbols-outlined">query_stats</span></div><span class="font-label-sm text-[#008b7f]">02</span></div><div><h3 class="mt-12 font-headline-md text-headline-md text-text-primary">Quant</h3><p class="mt-3 font-body-md text-text-secondary">Explore indicators, build strategies, and turn your market ideas into a repeatable process.</p><a href="#" class="mt-7 inline-flex items-center gap-2 font-label-md text-[#008b7f]">Discover Quant <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a></div></article>
-        <article class="product-card group bg-[#fff0dd]"><div class="flex items-start justify-between"><div class="icon-tile bg-[#e58b38] text-white"><span class="material-symbols-outlined">travel_explore</span></div><span class="font-label-sm text-[#b86a22]">03</span></div><div><h3 class="mt-12 font-headline-md text-headline-md text-text-primary">Scout</h3><p class="mt-3 font-body-md text-text-secondary">Compare prop firms, find the right fit, and unlock special discounts plus Blynq loyalty points.</p><a href="#" class="mt-7 inline-flex items-center gap-2 font-label-md text-[#b86a22]">Discover Scout <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a></div></article>
+      <div class="mt-10 grid w-full gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        @for (product of products; track product.name; let index = $index) {
+          <article class="product-card group" [class]="product.backgroundClass">
+            <div class="flex items-start justify-between">
+              <div class="icon-tile text-white" [class]="product.iconClass"><span class="material-symbols-outlined">{{ product.icon }}</span></div>
+              <span class="font-label-sm" [class]="product.accentClass">{{ (index + 1).toString().padStart(2, '0') }}</span>
+            </div>
+            <div>
+              <h3 class="mt-12 font-headline-md text-headline-md text-text-primary">{{ product.name }}</h3>
+              <p class="mt-3 font-body-md text-text-secondary">{{ product.description }}</p>
+              <a href="#" class="mt-7 inline-flex items-center gap-2 font-label-md" [class]="product.accentClass">Discover {{ product.name }} <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+            </div>
+          </article>
+        }
       </div>
 
     </section>
@@ -37,5 +47,38 @@ import { Component } from '@angular/core';
   styleUrl: './products.css',
 })
 export class Products {
-
+  protected readonly products = [
+    {
+      name: 'Log',
+      icon: 'edit_note',
+      description: 'Journal every trade automatically or by hand, capture your thinking, and learn from your decisions.',
+      backgroundClass: 'bg-[#e9f0ff]',
+      iconClass: 'bg-[#2e72ff]',
+      accentClass: 'text-primary',
+    },
+    {
+      name: 'Quant',
+      icon: 'query_stats',
+      description: 'Explore indicators, build strategies, and turn your market ideas into a repeatable process.',
+      backgroundClass: 'bg-[#e5f9f3]',
+      iconClass: 'bg-[#00a99a]',
+      accentClass: 'text-[#008b7f]',
+    },
+    {
+      name: 'Scout',
+      icon: 'travel_explore',
+      description: 'Compare prop firms, find the right fit, and unlock special discounts plus Blynq loyalty points.',
+      backgroundClass: 'bg-[#fff0dd]',
+      iconClass: 'bg-[#e58b38]',
+      accentClass: 'text-[#b86a22]',
+    },
+    {
+      name: 'GEX',
+      icon: 'monitoring',
+      description: 'Read options market positioning, spot pressure zones, and make sharper decisions with gamma exposure.',
+      backgroundClass: 'bg-[#f2eaff]',
+      iconClass: 'bg-[#7a4ee8]',
+      accentClass: 'text-[#6840c4]',
+    },
+  ];
 }
